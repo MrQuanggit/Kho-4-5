@@ -1,0 +1,52 @@
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products">
+      <td>
+        <div class="display-flex align-center">
+          <div class="img-product">
+            <img src="{{ item.product.image }}" alt="" class="mCS_img_loaded" />
+          </div>
+          <div class="name-product">
+            {{ item.product.name }}
+            <br />G2356
+          </div>
+          <div class="price">${{ item.product.price }}</div>
+        </div>
+      </td>
+      <td class="product-count">
+        <form action="#" class="count-inlineflex">
+          <div (click)="decreseProduct(item)" class="qtyminus">-</div>
+          <input
+            #inputQuantityElement
+            type="number"
+            name="quantity"
+            [value]="item.quantity  "
+            class="qty"
+          />
+          <div (click)="increseProduct(item)" class="qtyplus">+</div>
+        </form>
+      </td>
+      <td>
+        <div class="total">${{ item.product.price * item.quantity }}</div>
+      </td>
+      <td>
+        <a href="#" (click)="removeProduct(item.product.id)" title="">
+          <img
+            width="20%"
+            src="https://cdn.onlinewebfonts.com/svg/img_416864.png"
+            alt=""
+            class="mCS_img_loaded"
+          />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
