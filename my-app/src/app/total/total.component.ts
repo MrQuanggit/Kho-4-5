@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../product.model';
 
 @Component({
   selector: 'app-total',
@@ -7,9 +6,10 @@ import { Product } from '../product.model';
   styleUrls: ['./total.component.css']
 })
 export class TotalComponent implements OnInit {
-  @Input() numberItems;
+  @Input() subItem;
   @Input() subTotal;
   @Input() total;
+  @Input() discount;
 
   constructor() { }
 

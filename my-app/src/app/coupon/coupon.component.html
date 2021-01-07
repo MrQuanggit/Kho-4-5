@@ -1,8 +1,14 @@
 <div class="coupon-box">
-  <form action="#" method="get" accept-charset="utf-8">
       <div class="coupon-input">
-          <input type="text" name="coupon code" placeholder="Coupon Code">
-          <button type="submit" class="round-black-btn">Apply Coupon</button>
+          <input
+          #coupon
+          type="text"
+          name="coupon"
+          placeholder="Coupon Code"
+          >
+          <button type="submit" (click)="submit(coupon.value)" class="round-black-btn">Apply Coupon</button>
       </div>
-  </form>
+      <div>
+        <p style="color: red;">{{message}}</p>
+      </div>
 </div>

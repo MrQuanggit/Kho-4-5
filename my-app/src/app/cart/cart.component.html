@@ -16,7 +16,7 @@
           </div>
           <div class="name-product">
             {{ item.product.name }}
-            <br />G2356
+            <br />{{item.product.des}}
           </div>
           <div class="price">${{ item.product.price }}</div>
         </div>
@@ -25,10 +25,9 @@
         <form action="#" class="count-inlineflex">
           <div (click)="decreseProduct(item)" class="qtyminus">-</div>
           <input
-            #inputQuantityElement
             type="number"
             name="quantity"
-            [value]="item.quantity  "
+            [value]="item.quantity"
             class="qty"
           />
           <div (click)="increseProduct(item)" class="qtyplus">+</div>

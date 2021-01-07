@@ -12,14 +12,14 @@
 	        <div class="row">
 			    <div class="col-lg-8">
             <div class="table-cart">
-                    <app-cart [products]="cartItems" (click)="removeCartItemFromCart()"></app-cart>
-                  <app-coupon></app-coupon>
+                    <app-cart [products]="cartItems"></app-cart>
+                  <app-coupon (coupon)="submit($event)" [message]="message"></app-coupon>
             </div>
 			        <!-- /.table-cart -->
 			    </div>
           <!-- /.col-lg-8 -->
           <div class="col-lg-4">
-          <app-total [numberItems]="numberItems" [subTotal]="subTotal" [total]="total"></app-total>
+          <app-total [subItem]="subItem" [subTotal]="subTotal" [total]="total" [discount]="discount"></app-total>
           </div>
 			    <!-- /.col-lg-4 -->
 			</div>

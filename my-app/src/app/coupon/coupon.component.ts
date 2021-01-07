@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-coupon',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coupon.component.css']
 })
 export class CouponComponent implements OnInit {
+  @Output() coupon = new EventEmitter();
+  @Input() message;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  submit(coupon) {
+    this.coupon.emit(coupon);
+  }
 }
