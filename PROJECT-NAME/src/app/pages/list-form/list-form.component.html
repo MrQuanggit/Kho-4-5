@@ -1,0 +1,30 @@
+<h3>
+  Total Persons: {{ count }}
+</h3>
+<button style="float: right;" nz-button nzType="primary" nzDanger>
+  <a routerLink="/create" >Add Person</a>
+</button>
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th style="text-align: center;" >Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listOfData">
+      <td>
+        <a [routerLink]="['details',data.id]">{{ data.name }}</a>
+      </td>
+      <td>{{ data.age }}</td>
+      <td>{{ data.address }}</td>
+      <td style="text-align: center;">
+        <a [routerLink]="[data.id, 'edit']">Edit 一 {{ data.name }}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="remove(data)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

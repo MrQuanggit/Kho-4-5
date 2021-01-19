@@ -1,0 +1,36 @@
+<form nz-form [formGroup]="addPersonForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24"
+      [nzErrorTip]="addPersonForm.controls.name.hasError('required')
+      ? 'Name is required' : 'Name is too short'">
+      <input nz-input formControlName="name" id="name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="age" nzRequired>Age</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24"
+      [nzErrorTip]="addPersonForm.controls.age.hasError('required')
+      ? 'Age is required' : 'Age must be at least 18'">
+      <input nz-input type="number" id="age" formControlName="age"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address" nzRequired>Address</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24"
+      [nzErrorTip]="addPersonForm.controls.address.hasError('required')
+      ? 'Address is required' : 'Address must be at least 10'">
+      <input nz-input type="text" id="address" formControlName="address"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary">{{ isEdit ? 'Update' : 'Register'}}</button>
+      <button (click)="back()" type="button" nz-button nzType="primary">Back</button>
+    </nz-form-control>
+  </nz-form-item>
+  
+</form>

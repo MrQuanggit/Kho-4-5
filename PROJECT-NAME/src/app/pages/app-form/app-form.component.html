@@ -1,0 +1,36 @@
+<!-- NG-ZORRO -->
+<br><br>
+<form nz-form [formGroup]="addPersonForm" (ngSubmit)="submitForm()">
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5" nzRequired nzFor="name">Name</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzErrorTip="Please input your username!">
+      <input id="name" type="text" nz-input formControlName="name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="5" [nzXs]="24" nzFor="age" nzRequired>Age</nz-form-label>
+    <nz-form-control [nzSm]="12" [nzXs]="24"
+      nzErrorTip="Age at least 18!">
+      <input nz-input type="number" id="age" formControlName="age" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="5" [nzXs]="24" nzFor="address" nzRequired>Address</nz-form-label>
+    <nz-form-control [nzSm]="12" [nzXs]="24"
+      [nzErrorTip]="addPersonForm.controls.address.hasError('required')
+      ? 'Address is required' : 'Address must be at least 10'">
+      <input nz-input type="text" id="address" formControlName="address"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="12" [nzOffset]="5">
+      <button style="margin-right: 10px;" nz-button nzType="primary">{{ isEdit ? 'Update' : 'Register'}}</button>
+      <button (click)="back()" type="button" nz-button nzType="primary">Back</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
