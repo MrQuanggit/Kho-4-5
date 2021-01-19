@@ -1,8 +1,9 @@
-import { DetailComponent } from './pages/detail/detail.component';
-import { ListPersonComponent } from './pages/listPerson/listPerson.component';
+import { DetailPersonComponent } from './pages/detail-person/detail-person.component';
+import { ListPersonComponent } from './pages/list-person/list-person.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { vi_VN } from 'ng-zorro-antd/i18n';
@@ -17,6 +18,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -25,13 +27,13 @@ const routes: Routes = [
     component: ListPersonComponent
   },
   {
-    path: '',
-    loadChildren: () => import("./pages/upSert/upSert.module").then(m => m.UpSertModule)
+    path: ':id/detail',
+    component: DetailPersonComponent
   },
   {
-    path: ':id/detail',
-    component: DetailComponent
-  }
+    path: '',
+    loadChildren: () => import("./pages/upsert-person/upsert-person.module").then(m => m.UpsertPersonModule)
+  },
 ]
 
 registerLocaleData(vi);
@@ -40,22 +42,25 @@ registerLocaleData(vi);
   declarations: [
     AppComponent,
     ListPersonComponent,
-    DetailComponent
-
+    DetailPersonComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NzButtonModule,
+
     //
     NzTableModule,
     NzDividerModule,
     NzFormModule,
     NzButtonModule,
     NzInputModule,
+    ReactiveFormsModule,
 
+    // 
     RouterModule.forRoot(routes),
   ],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],

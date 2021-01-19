@@ -5,29 +5,27 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { Location } from '@angular/common';
 
-
 @Component({
-  selector: 'app-upSert',
-  templateUrl: './upSert.component.html',
-  styleUrls: ['./upSert.component.scss']
+  selector: 'app-upsert-person',
+  templateUrl: './upsert-person.component.html',
+  styleUrls: ['./upsert-person.component.scss']
 })
-export class UpSertComponent implements OnInit {
+export class UpsertPersonComponent implements OnInit {
   validateForm!: FormGroup;
   isEdit = false;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
     theme: 'twotone'
   };
-
   constructor(
+    private readonly personService: PersonService,
     private fb: FormBuilder,
     private router: Router,
     private location: Location,
     private route: ActivatedRoute,
-    private readonly personService: PersonService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.validateForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       age: [null, [Validators.required, Validators.min(18)]],
@@ -90,4 +88,5 @@ export class UpSertComponent implements OnInit {
   back() {
     this.location.back()
   }
+
 }

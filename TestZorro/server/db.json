@@ -13,9 +13,15 @@
       "id": 2
     },
     {
-      "name": "Chadwick",
-      "age": 30,
-      "address": "Numquam vel qui aut ",
+      "name": "Beatrice Jimenez",
+      "age": 34,
+      "address": "Dicta eligendi velit",
+      "id": 3
+    },
+    {
+      "name": "Shafira Lamb",
+      "age": 18,
+      "address": "Ex",
       "id": 4
     }
   ]

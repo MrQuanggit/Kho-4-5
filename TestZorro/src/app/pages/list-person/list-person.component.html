@@ -1,8 +1,6 @@
-<h3>
-  Total Persons: {{ count }}
-</h3>
-<button style="float: right;" nz-button nzType="primary" nzDanger>
-  <a routerLink="/create" >Add Person</a>
+<h3>Total Persons: {{ count }}</h3>
+<button style="float: right" nz-button nzType="primary" nzDanger>
+  <a routerLink="/create">Add Person</a>
 </button>
 <nz-table #basicTable [nzData]="listOfData">
   <thead>

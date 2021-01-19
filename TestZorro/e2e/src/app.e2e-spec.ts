@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('API-CRUD app is running!');
+    expect(await page.getTitleText()).toEqual('TestZorro app is running!');
   });
 
   afterEach(async () => {

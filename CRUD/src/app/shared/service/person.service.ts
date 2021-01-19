@@ -1,6 +1,6 @@
 import { Person } from './../models/person.model';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,19 +17,19 @@ export class PersonService {
     return this.http.get(API);
   }
 
-  getById(id: number) {
+  getById(id: number) : Observable<any> {
     return this.http.get(API + id);
   }
 
-  add(person: Person) {
+  add(person: Person) : Observable<any> {
     return this.http.post(API, person);
   }
 
-  edit(personId: number, person: Person) {
+  edit(personId: number, person: Person) : Observable<any> {
     return this.http.put(API + personId, person);
   }
 
-  remove(personId: number) {
+  remove(personId: number) : Observable<any> {
     return this.http.delete(API + personId);
   }
 }

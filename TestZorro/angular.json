@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "API-CRUD": {
+    "TestZorro": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/API-CRUD",
+            "outputPath": "dist/TestZorro",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +28,15 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
+              "src/theme.less",
               "src/styles.scss"
             ],
             "scripts": []
@@ -68,18 +74,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "API-CRUD:build"
+            "browserTarget": "TestZorro:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "API-CRUD:build:production"
+              "browserTarget": "TestZorro:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "API-CRUD:build"
+            "browserTarget": "TestZorro:build"
           }
         },
         "test": {
@@ -116,16 +122,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "API-CRUD:serve"
+            "devServerTarget": "TestZorro:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "API-CRUD:serve:production"
+              "devServerTarget": "TestZorro:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "API-CRUD"
+  "defaultProject": "TestZorro",
+  "cli": {
+    "analytics": "24c05a79-f993-4d78-8a5d-9c246b9397c3"
+  }
 }
