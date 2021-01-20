@@ -64,6 +64,8 @@ export class UpSertComponent implements OnInit {
     this.submitUpdate();
     else
     this.submitRegister();
+
+    this.validateForm.reset();
   }
 
   submitRegister() {

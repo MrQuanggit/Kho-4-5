@@ -1,0 +1,29 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Book 1",
+      "read": "true"
+    },
+    {
+      "id": 2,
+      "name": "Book 2",
+      "read": "false"
+    },
+    {
+      "name": "Book2",
+      "read": "false",
+      "id": 3
+    },
+    {
+      "name": "Book3",
+      "read": "false",
+      "id": 4
+    },
+    {
+      "name": "Book4",
+      "read": "true",
+      "id": 5
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<a routerLink="/">Về Trang Chủ</a>
+<nz-table  #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>
+        <a>Danh sách đọc</a>
+      </th>
+      <th>
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listOfData">
+      <td>{{ data.name }}</td>
+      <td>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="read(data.id)">{{ data.read == "true" ? "Đã đọc" : "Đọc lại" }}</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5" nzRequired nzFor="name">Name</nz-form-label>
+    <nz-form-control [nzSpan]="12" [nzErrorTip]="validateForm.controls.name.hasError('required') ? 'This name is not required !' : 'At least 3 words !' ">
+      <input id="name" type="text" nz-input formControlName="name" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzSpan]="12" [nzOffset]="5">
+      <button style="margin-right: 10px;" nz-button nzType="primary">Add Books</button>
+      <button (click)="back()" type="button" nz-button nzType="primary">Back</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<a routerLink="/books/read">Danh sách đã đọc</a>
